@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+    .image-container {
+        display: inline-block; /* This will allow the div to shrink-wrap to the content size */
+        line-height: 0; /* Removes extra space below the image which can occur due to baseline alignment */
+        margin: 0 20px; /* Prevents unexpected spacing due to font metrics */
+    }
+    .image-container img {
+        display: block; /* Removes space below the image */
+        width: auto; /* Maintains the natural image width */
+        height: auto; /* Maintains aspect ratio */
+    }
+</style>
+    
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Images of the Russian Empire -- Colorizing the Prokudin-Gorskii Photo Collection
+    </h1>
+
+    <h2 class="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+        Fergal Hennessy
+    </h2>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+</div>
+
+<div style="width: 1200px; margin: 0 auto; padding: 20px; max-width: 2000px; text-align: center;">
+    <div id="custom-controls-gallery" class="relative w-auto" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div id="carouselWrapper" style="height: 550px;" class="relative overflow-hidden rounded-lg ">
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                <img src="./demo_final/emir.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/downloaded_sailors.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/downloaded_farmer_2.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/downloaded_farmer.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/harvesters.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/three_generations.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/church.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/onion_church.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/padded_monastery.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/padded_cathedral.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 1 -->
+             <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/self_portrait.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/melons.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/icon.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/lady.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/sculpture.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/train.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="./demo_final/padded_tobolsk.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+        </div>
+        <text>
+            Left: original image. Center: Gaussian image pyramid with edge detection filter applied. Right: final image
+        </text>
+        <div class="flex justify-center items-center pt-4">
+            <button type="button" class="flex justify-center items-center me-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
+                    <svg class="rtl:rotate-180 w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="flex justify-center items-center h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
+                    <svg class="rtl:rotate-180 w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <br>
+    
+</div>
+
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    </br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Overview
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    
+    <h3 class="text-xl">
+        In the early 20th century, photographer Sergey Mikhaylovich Prokudin-Gorskii travelled Russia in a railway-car darkroom provided by Emperor Nichalas II, using a black and white camera and three color filters to catalogue the many features of Russia.
+        In this project, using his black and white photos, we create color compositions that combine the information in each of the three photos he took to create a color representation of the subjects.
+    </h4>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Process
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h4 class="text-xl">
+        Our goal is to inspect compositions of 3 images which were taken from top to bottom with blue, green, and red filters respecively, and overlay them to create a colorized image.
+        To do this, we split the original image into three equal parts, representing the blue, green, and red images respectively.
+
+        From here, we can estimate the relative real position of the three parts using an image scoring metric to find the best offsets to overlay each image on top of each other.
+        However, for large images, searching the entirety of each image for the best possible offset may involve searching millions of pixels and running an expensive metric on each one. Therefore we use image pyramids:
+
+        Each input image is repeatedly run through a Gaussian filter and downsampled by a factor of 2 to obtain a smaller image that keeps roughly the same low-frequency patterns.
+        
+    </h4>
+    <br>
+    <br>
+
+    <h4 class="text-xl">
+        It doesn't take very long to run an image similarity metric like Normalized Cross-Correlation of the brightnesses of each third of the subsection on the entirety of the smallest image in this pyramid to get an estimate of the correct offset for each color. 
+        We can use this best-scoring offset to guess the best offset for the image that is up one level in the pyramid, and we can confine our search to a small region around our predicted best offset.
+        Repeating this procdure throughout the larger levels of the pyramid, we can find the best offset for large images according to NCC in less than 10 seconds.
+    </h4>
+    <img style= "height: 500px; display:inline " src="overview/cathedral_pyramid.jpg">  <img style= "height: 400px; display:inline " src="overview/cathedral.jpg">
+    <br>
+    <img style= "height: 500px; display:inline " src="overview/lady_pyramid.jpg">  <img style= "height: 400px; display:inline " src="overview/lady.jpg">
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Bells and Whistles: Align Emir and Auto-Crop
+    </h1>
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h4 class="text-xl">
+        Using the NCC to correlate based on pixel brightness and then overlaying creates mysterious colored bars at the borders of the image, and even worse, can generate the wrong result when 
+        two of the black/white sections have very different color densities. For example, the picture of the Emir confounds our NCC algorithm: 
+
+        <img style= "height: 500px;" src="overview/emir_ncc.jpg">
+
+        This makes some sense: the vivid color in the center of the image contains high blue density but not very much red, and so our algorithm decides the best location for the robe in our red image
+        is definitely not the same location as the location of the blue robe in the blue image.
+
+        To combat this, we can instead detect locations in each third where there are sudden changes in color intensity, or edges, with the Sobel filter, and then use NCC to decide the best offset based on the location of these edges.
+
+        The Sobel filter is a pair of two convolutions which detect sudden x-changes and sudden y-changes in the values of a matrix.
+
+        <br>
+
+        <img style= "height: 200px; display: inline" src="overview/gxgy.png">
+
+        <br>
+
+        In the image above, the Gx filter detects sudden changes in the x-direction, so vertical edges. A vertical edge will have a high magnitude after going through this filter because values on one side are drastically different from the other.
+        <br>
+        Likewise, the Gy filter detects sudden changes in the y-direction, or horizontal edges.
+        <br>
+        The Sobel filter values are calculated by np.sqrt(Gx ** 2 + Gy**2) where Gx and Gy represent the results of convolution with the Gx and Gy filters respectively.
+        <br>
+        We run each level of the Gaussian pyramid generated in the previous step through our Sobel filter and obtain a new image pyramid representing the edges in each level of the pyramid
+
+        <br>
+
+        <img style= "height: 500px; display: inline" src="overview/emir_edges.jpg">
+
+        <br>
+
+        Within our new image pyramid, we run the same NCC pyramid search looking for the best offsets as before, and obtain better results:
+
+        <br>
+
+        <img style= "height: 500px; display: inline" src="overview/emir_sobel.jpg">
+
+        <br>
+
+        However, there are still a few unsightly colored bars at the edges of our image.
+
+        <br>
+
+        We can try to remove them again using the Sobel filter to detect edges. We find the inward-most rows and columns with median value after the sobel filter that is higher than a certain threshold for any color frequency. 
+        These are likely to be strong, uniformly colored edges in our image, like the bars that we want to crop out. Therefore, we crop from the border of the image up to these rows/columns.
+
+        <br> <br>
+
+        The result has less distraction at the periphery, although something like writing in white on the film border can still confuse it:
+
+        <br>
+
+        <img style= "height: 500px; display: inline" src="overview/emir.jpg">
+
+        <br>
+
+        After applying the edge filtering procedure to all the images from the sample dataset, and three other images from the Prokudin-Gorskii collection, we get the results and offsets (y, x) shown in the gallery at the top of the page.
+
+    </h4>
+    
+    
+    
+</div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    
+</body>
+</html>
