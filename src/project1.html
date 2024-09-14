@@ -107,6 +107,8 @@
         </div>
         <text>
             Left: original image. Center: Gaussian image pyramid with edge detection filter applied. Right: final image
+            <br>
+            (NOTE: DOES NOT DISPLAY WELL ON PDF)
         </text>
         <div class="flex justify-center items-center pt-4">
             <button type="button" class="flex justify-center items-center me-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -143,7 +145,7 @@
 
     
     <h3 class="text-xl">
-        In the early 20th century, photographer Sergey Mikhaylovich Prokudin-Gorskii travelled Russia in a railway-car darkroom provided by Emperor Nichalas II, using a black and white camera and three color filters to catalogue the many features of Russia.
+        In the early 20th century, photographer Sergey Mikhaylovich Prokudin-Gorskii travelled Russia in a railway-car darkroom provided by Emperor Nicholas II, using a black and white camera and three color filters to catalogue the many features of Russia.
         In this project, using his black and white photos, we create color compositions that combine the information in each of the three photos he took to create a color representation of the subjects.
     </h4>
 
@@ -160,7 +162,7 @@
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
     <h4 class="text-xl">
-        Our goal is to inspect compositions of 3 images which were taken from top to bottom with blue, green, and red filters respecively, and overlay them to create a colorized image.
+        Our goal is to inspect compositions of 3 images which were taken from top to bottom with blue, green, and red filters respectively, and overlay them to create a colorized image.
         To do this, we split the original image into three equal parts, representing the blue, green, and red images respectively.
 
         From here, we can estimate the relative real position of the three parts using an image scoring metric to find the best offsets to overlay each image on top of each other.
@@ -214,7 +216,7 @@
         <br>
         Likewise, the Gy filter detects sudden changes in the y-direction, or horizontal edges.
         <br>
-        The Sobel filter values are calculated by np.sqrt(Gx ** 2 + Gy**2) where Gx and Gy represent the results of convolution with the Gx and Gy filters respectively.
+        The Sobel filter values can be calculated with np.sqrt(Gx ** 2 + Gy**2) where Gx and Gy represent the results of convolution with the Gx and Gy filters respectively.
         <br>
         We run each level of the Gaussian pyramid generated in the previous step through our Sobel filter and obtain a new image pyramid representing the edges in each level of the pyramid
 
@@ -249,7 +251,7 @@
 
         <br>
 
-        After applying the edge filtering procedure to all the images from the sample dataset, and three other images from the Prokudin-Gorskii collection, we get the results and offsets (y, x) shown in the gallery at the top of the page.
+        After applying the edge filtering procedure to all the images from the sample dataset, and three other images from the Prokudin-Gorskii collection, we get the results, time, and offsets (y, x) shown in the gallery at the top of the page.
 
     </h4>
     
