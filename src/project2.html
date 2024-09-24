@@ -345,7 +345,7 @@
 
     <h3 class="text-xl">
         In this part of the project, we implement Gaussian and Laplacian stacks. A Gaussian stack is formed by repeatedly applying the Gaussian blur operator by convolving with the Gaussian kernel. A Laplacian Stack 
-        is derived from the Gaussian stack of an image such that Laplaian_stack[i] = Gaussian_stack[i] - Gaussian_stack[i-1], and the last images are the same. Vectorized, we can represent this with the following code:
+        is derived from the Gaussian stack of an image such that Laplaian_stack[i] = Gaussian_stack[i] - Gaussian_stack[i+1], and the last images are the same. Vectorized, we can represent this with the following code:
         <br>
         l_stack = (g_stack[:-1] - g_stack[1:]).append(g_stack[-1])
         <br>
