@@ -48,9 +48,15 @@
     <h3 class="text-xl">
         In this part of the project, we use the finite difference operator to take the gradient of the camerman image. Remember that the finite difference operator involves convolving the 
         input image with the row matrix dx = [[1, -1]] and the column matrix dy = [[1], [-1]] respectively
+
+        <br>
+        <br>
         
         From the initial cameraman image above, the difference operator gives the output 
         shown below for Dx and Dy respectively.
+
+        <br>
+        <br>
 
         Binarizing the image, we get the black and white outputs shown below as cameraman_bin_Dx and cameraman_bin_Dy respectively.
     </h3>
@@ -72,7 +78,8 @@
     </div>
 
     <h3 class="text-xl">
-        Taking the norm of the binarized Dx and binarized Dy respectively, and then binarizing the result, we get the binarized output cameraman_bin_dXdy shown below.
+        Taking the pixelwise norm of the binarized Dx and binarized Dy respectively, and then binarizing the result, we get the binarized output cameraman_bin_dXdy shown below. To a human, 
+        it is possible to tell the subject from the edges, but there are many detected gradients present in the output that a human would not identify as significant, even with a high threshold for binarization.
     </h3>
 
     <br>
@@ -90,7 +97,7 @@
     </br>
 
     <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
-        Part 1.2: Derivative of Gaussian (DoG) Filter
+        Part 1.2: Derivative of Gaussian (DoG) Filter (Two methods)
     </h1>
 
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -98,6 +105,10 @@
     <h3 class="text-xl">
         Notice that the ouptuts from the finite difference operator above, even binarized, contain a lot of noise and it's hard to identify continuous edges. To denoise the image, 
         we can use the Derivative of Gaussian filter to try and create a more continuous image.
+
+        <br>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <br>
 
         In this part of the project, we take two separate approaches to denoising. First, we convolve the input cameraman image with a gaussian filter to subtract high frequencies and 
         apply the Finite Difference operator to the blurred image. The results for this technique are shown below.
@@ -133,10 +144,10 @@
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
     <h3 class="text-xl">
-        The previous method of denoising involved two large convolutions: one convolution to gaussian blur the image, then one convolution for each operator dx and dy
+        The previous method of denoising involved two large convolutions: one convolution to gaussian blur the image, then one convolution for each operator dx and dy.
         <br>
         
-        But convolutions are associative! so we should be able to save some computations by first convolving the gaussian filter with the dx and dy filters to get difference of gaussian filters DoGx and Dogy.
+        But convolutions are associative! so we should be able to save some computations by first convolving the gaussian filter with the dx and dy filters to get difference of gaussian filters DoGx and DoGy.
 
         <br>
         Using this technique, we ge the following results below: The first pair of images is the result of the DoGx and DoGy filters respectively. The next pair is the binarized version of the results of the filters,
@@ -168,7 +179,7 @@
     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
     <h3 class="text-xl">
-        If you compare the results of the blurred difference operator and the DoG operator above, you can see they are the exact same! But for the DoG filter, we have to do much fewer computations!
+        If you compare the results of the blurred difference operator and the DoG operator above, <b>you can see they are the exact same</b>! But for the DoG filter, we have to do much fewer computations!
 
         <br>
         <br> In general, we can see that the edges are much more clearly defined if we take the gaussian blur as opposed to the naive difference operator.
@@ -367,7 +378,8 @@
 
         To implement the blur, we multiply the laplacian stack value at one level of the first image by the mask stack value at that level, 
         multiply the laplacian stack value at one level of the first image by the inverse of the mask stack value at that level, then add them together. High frequency features will blend seamlessly, while
-        low-frequency features will separate sharply, creating a multiresolution blur effect. Below, we show the final output of this implementation on apple.jpg and orange.jpg, along with the mask stack used in the transformation
+        low-frequency features will separate sharply, creating a multiresolution blur effect. 
+        Below, we show the final output of this implementation on apple.jpg and orange.jpg, along with the mask stack used in the transformation.
 
         <br>
         
