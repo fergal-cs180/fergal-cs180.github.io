@@ -114,7 +114,7 @@
         apply the Finite Difference operator to the blurred image. The results for this technique are shown below.
 
         The first pair of images below is the result of the dx and dy operator on the blurred image, respectively. The next pair is the binarized results, and the final pair is 
-        the pixelwise norm of Dx and Dy and the binarised pixelwise norm of the pixelwise norm respectively.
+        the pixelwise norm of Dx and Dy and the binarised version of the pixelwise norm with filter at brightness 60 respectively.
 
         <br>
         <br> In general, we can see that the edges are much more clearly defined if we take the gaussian blur as opposed to the naive difference operator.
@@ -200,18 +200,19 @@
     <img style= "height: 400px; display:inline " src="project_2_img/sharpen/taj.jpg"> <img style= "height: 400px; display:inline " src="project_2_img/sharpen/tree.jpg">
 
     <h3 class="text-xl">
-        In this part of the project, we do the reverse of the previous section, where we wished to denoise images. This time, we want to add noise to our images!
+        In this part of the project, we do the reverse of the previous section, where we wished to remove the high-frequency portions of our image. Here, we will amplify the high-frequency sections 
+        to give the appearance of a higher-resolution image!
 
         <br> <br>
 
-        By adding the highest frequencies of our image to the original image, the image will appear to have more detail because the finer details will be exaggerated in the result. 
+        By adding the highest frequencies of our image to the original image, the image will appear to have more detail because the finer details will be exaggerated to greater extremes in the result. 
         By subtracting a blurred version (gaussian blur = low frequencies) from the original image, we can extract high frequencies. 
         Then, we can perform a weighted sum of these high frequencies with the image to exaggerate the finer details to a degree of our choosing
 
         <br> <br>
         We can combine the convolution and subtraction into a single convolution by scaling the gaussian blur by -1 and adding 1 to the middle. 
         Then, we can combine this convolution with the weighted sum operation by scaling the convolution result by alpha and adding a 1 to the center of the convolution.
-        In this way, the entire process of sharpening has been combined into a single convolution operation, called the unsharp mask filter.
+        In this way, the entire process of sharpening has been combined into a single convolution operation, called the <b>unsharp mask filter</b>.
         
         <br> <br>
 
