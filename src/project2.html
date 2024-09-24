@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+    .image-container {
+        display: inline-block; /* This will allow the div to shrink-wrap to the content size */
+        line-height: 0; /* Removes extra space below the image which can occur due to baseline alignment */
+        margin: 0 20px; /* Prevents unexpected spacing due to font metrics */
+    }
+    .image-container img {
+        display: block; /* Removes space below the image */
+        width: auto; /* Maintains the natural image width */
+        height: auto; /* Maintains aspect ratio */
+    }
+</style>
+    
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Fun with Filters and Frequencies!
+    </h1>
+
+    <h2 class="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+        Fergal Hennessy
+    </h2>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+</div>
+
+<div style="width: 1200px; margin: 0 auto; padding: 20px; max-width: 2000px; text-align: center;">
+
+
+    </br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 1.1: Finite Difference Operator: Cameraman
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <img style= "height: 400px; display:inline " src="project_2_img/diff_op/cameraman.png">
+
+    <h3 class="text-xl">
+        In this part of the project, we use the finite difference operator to take the gradient of the camerman image. Remember that the finite difference operator involves convolving the 
+        input image with the row matrix dx = [[1, -1]] and the column matrix dy = [[1], [-1]] respectively
+        
+        From the initial cameraman image above, the difference operator gives the output 
+        shown below for Dx and Dy respectively.
+
+        Binarizing the image, we get the black and white outputs shown below as cameraman_bin_Dx and cameraman_bin_Dy respectively.
+    </h3>
+
+    
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/diff_op/cameramanDx.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/diff_op/cameramanDy.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/diff_op/cameramanbin_Dx.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/diff_op/cameramanbin_Dy.png" alt="">
+        </div>
+    </div>
+
+    <h3 class="text-xl">
+        Taking the norm of the binarized Dx and binarized Dy respectively, and then binarizing the result, we get the binarized output cameraman_bin_dXdy shown below.
+    </h3>
+
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <br>
+
+    <img style= "height: 400px; display:inline " src="project_2_img/diff_op/cameramanbin_Dxy.png">
+
+    
+</div>
+
+<div style="width: 1200px; margin: 0 auto; padding: 20px; max-width: 2000px; text-align: center;">
+
+
+    </br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 1.2: Derivative of Gaussian (DoG) Filter
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        Notice that the ouptuts from the finite difference operator above, even binarized, contain a lot of noise and it's hard to identify continuous edges. To denoise the image, 
+        we can use the Derivative of Gaussian filter to try and create a more continuous image.
+
+        In this part of the project, we take two separate approaches to denoising. First, we convolve the input cameraman image with a gaussian filter to subtract high frequencies and 
+        apply the Finite Difference operator to the blurred image. The results for this technique are shown below.
+
+        The first pair of images below is the result of the dx and dy operator on the blurred image, respectively. The next pair is the binarized results, and the final pair is 
+        the pixelwise norm of Dx and Dy and the binarised pixelwise norm of the pixelwise norm respectively.
+
+        <br>
+        <br> In general, we can see that the edges are much more clearly defined if we take the gaussian blur as opposed to the naive difference operator.
+    </h3>
+
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanDx.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanDy.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanbin_Dx.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanbin_Dy.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanDxy.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/gauss_edge/cameramanbin_Dxy.png" alt="">
+        </div>
+    </div>
+    
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        The previous method of denoising involved two large convolutions: one convolution to gaussian blur the image, then one convolution for each operator dx and dy
+        <br>
+        
+        But convolutions are associative! so we should be able to save some computations by first convolving the gaussian filter with the dx and dy filters to get difference of gaussian filters DoGx and Dogy.
+
+        <br>
+        Using this technique, we ge the following results below: The first pair of images is the result of the DoGx and DoGy filters respectively. The next pair is the binarized version of the results of the filters,
+        and the final pair is the pixelwise norm of the DoGx and DoGy result and the binarized pixelwise norm of the pixelwise norm respectively
+    </h3>
+
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanDoG_x.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanDoG_y.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanbin_DoG_x.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanbin_DoG_y.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanDoG_xy.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/DoG_edge/cameramanbin_DoG_xy.png" alt="">
+        </div>
+    </div>
+
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        If you compare the results of the blurred difference operator and the DoG operator above, you can see they are the exact same! But for the DoG filter, we have to do much fewer computations!
+
+        <br>
+        <br> In general, we can see that the edges are much more clearly defined if we take the gaussian blur as opposed to the naive difference operator.
+    </h3>
+</div>
+
+<div style="width: 1200px; margin: 0 auto; padding: 20px; max-width: 2000px; text-align: center;">
+
+
+    </br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 2.1: Image "Sharpening"
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <img style= "height: 400px; display:inline " src="project_2_img/sharpen/taj.jpg"> <img style= "height: 400px; display:inline " src="project_2_img/sharpen/tree.jpg">
+
+    <h3 class="text-xl">
+        In this part of the project, we do the reverse of the previous section, where we wished to denoise images. This time, we want to add noise to our images!
+
+        <br> <br>
+
+        By adding the highest frequencies of our image to the original image, the image will appear to have more detail because the finer details will be exaggerated in the result. 
+        By subtracting a blurred version (gaussian blur = low frequencies) from the original image, we can extract high frequencies. 
+        Then, we can perform a weighted sum of these high frequencies with the image to exaggerate the finer details to a degree of our choosing
+
+        <br> <br>
+        We can combine the convolution and subtraction into a single convolution by scaling the gaussian blur by -1 and adding 1 to the middle. 
+        Then, we can combine this convolution with the weighted sum operation by scaling the convolution result by alpha and adding a 1 to the center of the convolution.
+        In this way, the entire process of sharpening has been combined into a single convolution operation, called the unsharp mask filter.
+        
+        <br> <br>
+
+        In the images below, we see a version of the taj mahal image with gaussian blur applied and the difference of this blur with the original, respectively.
+        By looking at the image represented by the difference of the original and blur, we see that the tree shaows and palace shadows have especially clear outlines. They will be sharper in the sharpened image.
+
+        <br> <br>
+        The third image is a weighted sum (alpha = 0.75) of the original image (above) and the difference with the blurred image. You can see many high contrast areas stand out more than before.
+    </h3>
+    <div class="grid grid-cols-3 gap-6">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/tajblurred.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/tajdiff_original.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/tajsharpen.png" alt="">
+        </div>
+    </div>
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <br>
+    <h3 class="text-xl">
+        We can apply the same sharpening process to the image of a tree, also seen above. The results are shown below. Again, small bright areas are much brighter than before, while small dark areas are much darker.
+        In particular, the tree trunk appears as if we're right next to it because the ridges stand out extremely clearly.
+    </h3>
+    <div class="grid grid-cols-2 gap-6">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/treeblurred.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/treediff_original.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/treesharpen.png" alt="">
+        </div>
+    </div>
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <br>
+
+    <h3 class="text-xl">
+        What happens if we sharpen an already sharp image? The results for both the taj mahal and the tree image are shown below. The images, especially the tree bark, appear more "knobbly" and rough than before as a result of the high-frequency magnification.
+    </h3>
+    <br>
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/tajdiff_sharpened.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/tajresharpen.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/treediff_sharpened.png" alt="">
+        </div>
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="project_2_img/sharpen/treeresharpen.png" alt="">
+        </div>
+    </div>
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <br>
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 2.2: Hybrid Images (When the Impostor is Sus!)
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <img style= "height: 400px; display:inline " src="project_2_img/merge/beachfarmmerged.png"> <img style= "height: 400px; display:inline " src="project_2_img/merge/cissusmerged.png">
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        In this part of the project, we make hybrid images by combining the low-frequency part of one image with the high-frequency part of another!
+        <br>
+        To do this, we extract the low-frequency portion of the image we want to be visible from far away by taking the gaussian blur with some sigma.
+        <br>
+        We extract the high-frequency portion of the image we want to be visible from close up by taking the difference of the image and the gaussian blur with some sigma.
+        <br>
+        After aligning the images, we can overlay the high-frequency part of one and the low-frequency part of another. Because of the way the human eye filters, the image will take on properties of the low-frequency 
+        section when viewed from far away and properties of the high-frequency part when viewed closeup.
+        
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <br>
+        Below, the process of creating a composite of a solar farm and a beach image. The first pair of images is the beach low-frequency and the farm high-frequency. 
+        <br>
+        Averaging these images gives us the final image, the hybrid of the farm and beach
+    </h3>
+    <img style= "height: 350px; display:inline " src="project_2_img/merge/beachlowpass.png"> <img style= "height: 350px; display:inline " src="project_2_img/merge/farmhighpass.png">
+    <img style= "height: 600px; display:inline " src="project_2_img/merge/beachfarmmerged.png"> 
+    <h3 class="text-xl">
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <br>
+        Below, the process of creating a composite of a smiling image and a frowning image. The first pair of images is the frown low-frequency and the smile high-frequency. horrifying!
+        <br>
+        Averaging these images gives us the final image, the hybrid of the smile and frown.
+    </h3>
+    <img style= "height: 350px; display:inline " src="project_2_img/merge/cislowpass.png"> <img style= "height: 350px; display:inline " src="project_2_img/merge/sushighpass.png">
+    <img style= "height: 600px; display:inline " src="project_2_img/merge/cissusmerged.png"> 
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <h2 class="text-xl"> Merging crowd and field (Failure)</h2>
+    <h3 class="text-xl">
+        <br>
+        Below, the process of creating a composite of a crowd image and a field image. The first pair of images is the crowd low-frequency and the field high-frequency. 
+        <br>
+        Averaging these images gives us the final image, the hybrid of the crowd and field.
+        <br>
+        I would consider this image composition a failure. One of the characteristics of a field is that it can be identified in low-frequency without paying much heed to the individual high-frequency details 
+        Similarly, a crowd is generally distinguished by the high-frequency details much more than the low-frequency patterns. Therefore, this composition is in the opposite order that we would want for a 
+        recognizable hybrid image.
+    </h3>
+    <img style= "height: 350px; display:inline " src="project_2_img/merge/crowdlowpass.png"> <img style= "height: 350px; display:inline " src="project_2_img/merge/fieldhighpass.png">
+    <img style= "height: 600px; display:inline " src="project_2_img/merge/crowdfieldmerged.png">
+
+    <br>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <br>
+    
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 2.3: Gaussian and Laplacian Stacks
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        In this part of the project, we implement Gaussian and Laplacian stacks. A Gaussian stack is formed by repeatedly applying the Gaussian blur operator by convolving with the Gaussian kernel. A Laplacian Stack 
+        is derived from the Gaussian stack of an image such that Laplaian_stack[i] = Gaussian_stack[i] - Gaussian_stack[i-1], and the last images are the same. Vectorized, we can represent this with the following code:
+        <br>
+        l_stack = (g_stack[:-1] - g_stack[1:]).append(g_stack[-1])
+        <br>
+        
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <br>
+        Below, the Gaussian stacks of size 6 and sigma=1 for apple.jpg and orange.jpg respectively, followed by their Laplacian stacks. Note that both the Gaussian and Laplacian stack contain all the information necessary to construct 
+        any image in the other stack.
+    </h3>
+    <img style= "height: 130px; display:inline " src="project_2_img/gstack/apple.png"> 
+    <img style= "height: 130px; display:inline " src="project_2_img/gstack/orange.png">
+    <img style= "height: 130px; display:inline " src="project_2_img/gstack/applelstack.png">
+    <img style= "height: 130px; display:inline " src="project_2_img/gstack/orangelstack.png">
+    <h3 class="text-xl">
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h1 class="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Part 2.4: MultiResolution Blending
+    </h1>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    <h3 class="text-xl">
+        In this part of the project, we implement multiresolution blending. To blend two images together, we create a mask representing the blur position, then make a gaussian stack out of the mask.
+
+        <br>
+
+        To implement the blur, we multiply the laplacian stack value at one level of the first image by the mask stack value at that level, 
+        multiply the laplacian stack value at one level of the first image by the inverse of the mask stack value at that level, then add them together. High frequency features will blend seamlessly, while
+        low-frequency features will separate sharply, creating a multiresolution blur effect. Below, we show the final output of this implementation on apple.jpg and orange.jpg, along with the mask stack used in the transformation
+
+        <br>
+        
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    </h3>
+    <img style= "height: 130px; display:inline " src="project_2_img/gstack/orapple_mask.png"> 
+    <img style= "height: 500px; display:inline " src="project_2_img/gstack/orapple_final.png">
+    <h3 class="text-xl">
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+    
+
+</div>
+
+
+
+
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    
+</body>
+</html>
+
