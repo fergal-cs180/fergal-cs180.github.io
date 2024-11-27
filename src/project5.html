@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+    .image-container {
+        display: inline-block; /* This will allow the div to shrink-wrap to the content size */
+        line-height: 0; /* Removes extra space below the image which can occur due to baseline alignment */
+        margin: 0 20px; /* Prevents unexpected spacing due to font metrics */
+    }
+    .image-container img {
+        display: block; /* Removes space below the image */
+        width: auto; /* Maintains the natural image width */
+        height: auto; /* Maintains aspect ratio */
+    }
+</style>
+    
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Fun With Diffusion Models!
+    </h1>
+
+    <h2 class="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+        Fergal Hennessy
+    </h2>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+</div>
+
+
+
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    </br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Implementing the Forward Process 
+    </h1>
+
+    <img style= "width: 500px; display: inline" src="project_5_img/1.1.png">
+    
+    <h3 class="text-xl">
+        To start, we define a forward function adding random noise to an input image. Here are the results of this function applied to a 64x64 image of the Campenille. 
+        The amount of noise for each pixel is sampled from a normal distribution with mean 0
+        and standard deviation 1, and scaled according to a factor t such that high t represents high noise.
+    </h4>
+
+    <br>
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Classical Denoising
+    </h1>
+
+    <br>
+
+    <img style= "height: 250px; display:inline " src="project_5_img/1.2.1.png">  
+    <img style= "height: 250px; display:inline " src="project_5_img/1.2.2.png">
+    <img style= "height: 250px; display:inline " src="project_5_img/1.2.3.png">
+    <img style= "height: 250px; display:inline " src="project_5_img/1.2.4.png">
+
+    <br>
+
+    <h3 class="text-xl"></h3>
+       One traditional way of removing high-frequency noise like the noise from forward() is to apply a Gaussian Filter. The results of Gaussian filtering with kernel
+       size 13x13 and sigma = 1.7 are shown above. This method of removing noise allows us to make out what is in the image for noise = 250 and noise = 500, but not 750.
+    </h4>
+
+    <br>
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Implementing One-Step Denoising
+    </h1>
+
+    <br>
+
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.1.png">  
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.2.png"> <br>
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.3.png">
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.4.png"> <br>
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.5.png">
+    <img style= "height: 250px; display:inline " src="project_5_img/1.3.6.png">
+
+    <br>
+    <br>
+
+    <h4 class="text-xl">
+        Using the DeepFloyd model, we can achieve more clear denoised images. Above are the before and after pictures when we provide the DeepFloyd model knowledge of
+        how much noise is in the input image. The more noise that there is in the input image, the further from the original image the output of the DeepFloyd model is.
+    </h4>
+
+    <br>
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Implementing Iterative Denoising
+    </h1>
+    
+    <br>
+
+    <img style= "height: 250px; display:inline " src="project_5_img/1.4.1.png">  
+    <img style= "height: 250px; display:inline " src="project_5_img/1.4.2.png"> 
+    <img style= "height: 250px; display:inline " src="project_5_img/1.4.3.png">
+    
+    <br>
+    <br>
+
+    <h4 class="text-xl">
+        Implementing iterative denoising (step by step with stride 10) gives us the following output. The ooutputs of iterative denoising are less blurry than the one-step denoised image,
+         but they also differ structurally much more from the original non-noised image.
+    </h4>
+
+    <br> 
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Implementing Iterative Denoising
+    </h1>
+    
+    <br>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.5.1.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.5.2.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.5.3.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.5.4.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.5.5.png">
+
+    <br>
+    
+    <h4 class="text-xl"></h4>
+        Using the iterative denoising technique with pure noise results in the above outputs. Many images output by this technique are unfocused and ambiguous.
+    </h4>
+
+    <br> 
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Classifier Free Guidance
+    </h1>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.6.1.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.6.2.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.6.3.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.6.4.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.6.5.png">
+
+    <h4 class="text-xl"></h4>
+        Using the Classifier Free Guidance denoising technique with pure noise results in the above outputs. These images are much more guided than those generated with 
+        only iterative denoising.
+    </h4>
+    <br>
+    
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Image-to-Image Translation
+    </h1>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.1.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.4.png"> <br>
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.5.png">
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.6.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.7.png">
+
+    <h4 class="text-xl"></h4>
+        Using the Classifier Free Guidance denoising technique with the starting point of the Campenille and the prompt "rocket" gives the above output. One interesting thing
+        to note is the inconsistency between related and different output: image 3 had more noise but outputs an image closer to the original than image 4!
+    </h4>
+
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Inpainting
+    </h1>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.1.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.2.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.3.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.4.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.2.5.png">
+
+    <h4 class="text-xl"></h4>
+        If we restrict the noised region with a mask, but include the entire image in the denoising process, setting the non-masked regions to be the original values,
+        we can create new versions of the original images. My favorite images here are images 4 and 5 : we can see that the model has imagined the Campenille as a castle 
+        and as a woman in a dress respectively!
+    </h4>
+    
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Text-Conditioned Image-to-image Translation
+    </h1>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.1.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.2.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.3.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.4.png"><br> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.5.png">
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.6.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.7.3.7.png">
+
+    <h4 class="text-xl"></h4>
+        In these images, we provide the guidance prompt "rocket" when denoising, and get a gradient images from pure rocket to pure campenille, from attempting to denoise a noised version
+        of the Campenille with "rocket" guidance!
+    </h4>
+    
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Visual Anagrams
+    </h1>
+
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.3.png">  
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.4.png"> <br>
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.5.png"> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.6.png"> <br> 
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.1.png">
+    <img style= "height: 200px; display:inline " src="project_5_img/1.8.2.png">
+
+    <h4 class="text-xl"></h4>
+        Denoising normal and flipped versions of noise gives us these visual anagrams which look like "oil painting of people around a campfire" in one direction and "oil painting of a man" in the other!
+    </h4>
+    
+    <br>
+</div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    
+</body>
+</html>
+
