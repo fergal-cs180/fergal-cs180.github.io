@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<style>
+    .image-container {
+        display: inline-block; /* This will allow the div to shrink-wrap to the content size */
+        line-height: 0; /* Removes extra space below the image which can occur due to baseline alignment */
+        margin: 0 20px; /* Prevents unexpected spacing due to font metrics */
+    }
+    .image-container img {
+        display: block; /* Removes space below the image */
+        width: auto; /* Maintains the natural image width */
+        height: auto; /* Maintains aspect ratio */
+    }
+</style>
+    
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Light Field Camera
+    </h1>
+
+    <h2 class="mb-4 text-l font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-3xl dark:text-white">
+        Fergal Hennessy
+    </h2>
+
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"> <br> <br>
+
+    <h3> In this precanned project, our goal is to simulate the image-warping effects that a camera experiences. <br>
+        
+        What I learned the most from this project was understanding how to make a demonstration of the problems that early cameras faced. <br>
+        
+        For example, pinhole cameras have a problem where a larger aperture allows more light but also more perspectives which can make a more blurry image. Similarly, depth of field is a phenomenon that modern cameras often struggle with. <br>
+        
+        Being able to simulate this from images without the phenomenon was very interesting.
+    </h3>
+</div>
+
+
+
+<div style="width: 65%; margin: 0 auto; padding: 20px; max-width: 1800px; text-align: center;">
+
+    </br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Depth Focusing with Image Averaging
+    </h1>
+
+    <img style= "width: 1400px; display: inline" src="final_proj_img/chess_1.gif">
+    <br>
+    <img style= "width: 700px; display: inline" src="final_proj_img/flower_1.gif">
+    
+    <h3 class="text-xl">
+        The first part of this project was depth refocusing. Images are from the Stanford Light Field Archive. <br>
+        Rectified coordinate data is given for images taken in a rectangular grid pattern. <br>
+        To simulate focus depth, we apply a linear shift to the images, use affine warp to shift the images to the center location, and average all the images.<br>
+        Depending on the amount of linear shift, the image average produces a different depth of field, as you can see in the gifs above.<br>
+        </h3>
+
+    <br>
+    <br>
+
+    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Aperture Selection
+    </h1>
+
+    <img style= "width: 1400px; display: inline" src="final_proj_img/chess_apeture_10000.png"><br>
+    Chess set with large aperture (including images with Euclidian distance up to 10000) and depth 70<br>
+    <img style= "width: 1400px; display: inline" src="final_proj_img/chess_apeture_100.png"><br>
+    Chess set with medium aperture (including images with Euclidian distance up to 100) and depth 70<br>
+    <img style= "width: 1400px; display: inline" src="final_proj_img/chess_apeture_20.png"><br>
+    Chess set with small aperture (including images with Euclidian distance up to 20) and depth 70<br>
+
+    <img style= "width: 1400px; display: inline" src="final_proj_img/flower_apeture_10000.png"><br>
+    Flower with large aperture (including images with Euclidian distance up to 10000) and depth 70<br>
+    <img style= "width: 1400px; display: inline" src="final_proj_img/flower_apeture_100.png"><br>
+    Flower with medium aperture (including images with Euclidian distance up to 100) and depth 70<br>
+    <img style= "width: 1400px; display: inline" src="final_proj_img/flower_apeture_20.png"><br>
+    Flower with small aperture (including images with Euclidian distance up to 20) and depth 70<br>
+
+    <h3 class="text-xl">
+        In the real world, a larger aperture size allows more perspectives to be incorporated into the final image.<br>
+        Using the grid of images we have, we can simulate larger or smaller apertures by including/not including images that are nearer or farther away from our desired point of view. The results are shown above.
+    </h3>
+
+
+    <br>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    
+</body>
+</html>
+
+
